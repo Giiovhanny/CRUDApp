@@ -70,7 +70,7 @@ namespace CRUDApp.Models
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("Sp_UpdateEmployee", con);
+                SqlCommand cmd = new SqlCommand("SP_UpdateEmployee", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@EmpId", emp.ID);
                 cmd.Parameters.AddWithValue("@Name", emp.Name);
@@ -112,6 +112,7 @@ namespace CRUDApp.Models
         public  EmployeeInfo GetEmployee(int empId)
         {
             EmployeeInfo emp = new EmployeeInfo();
+
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand("SP_GetEmployeeById", con);
